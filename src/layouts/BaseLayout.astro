@@ -8,22 +8,22 @@ interface Props {
 }
 
 const {
-  title = 'AMA Angels | Enfermeras en tu Casa · Servicios Médicos & Turismo Médico en Colombia',
-  description = 'AMA Angels: enfermeras en tu casa. Servicios médicos especializados, cirugía plástica, turismo médico y atención integral en Colombia. Financiación disponible.',
+  title = 'AMA ANGELS | Enfermeras en tu Casa · Servicios Médicos & Turismo Médico en Colombia',
+  description = 'AMA ANGELS: enfermeras en tu casa. Servicios médicos especializados, cirugía plástica, turismo médico y atención integral en Colombia. Financiación disponible.',
   ogImage = '/og-image.jpg',
 } = Astro.props;
 
 const schemaOrg = {
   '@context': 'https://schema.org',
   '@type': 'MedicalOrganization',
-  name: 'AMA Angels',
+  name: 'AMA ANGELS',
   description:
     'Enfermeras en tu casa. Servicios médicos especializados, cirugía plástica y turismo médico en Colombia',
   url: 'https://www.amaangels.com.co',
-  telephone: '+57-300-000-0000',
+  telephone: '+57-300-453-4836',
   address: {
     '@type': 'PostalAddress',
-    addressLocality: 'Bogotá',
+    addressLocality: 'Medellín',
     addressCountry: 'CO',
   },
   medicalSpecialty: ['PlasticSurgery', 'Pediatrics', 'Optometry', 'Psychiatry', 'GeneralPractice'],
@@ -48,7 +48,7 @@ const schemaOrg = {
     <meta name="description" content={description} />
     <meta
       name="keywords"
-      content="enfermeras a domicilio Colombia, turismo médico Colombia, cirugía plástica Bogotá, servicios de salud, AMA Angels, cuidado domiciliario"
+      content="enfermeras a domicilio Colombia, turismo médico Colombia, cirugía plástica Medellín, servicios de salud, AMA ANGELS, cuidado domiciliario"
     />
 
     <!-- Open Graph -->
