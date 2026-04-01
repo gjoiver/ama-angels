@@ -1,0 +1,128 @@
+---
+interface Pilar {
+  icon: string;
+  title: string;
+  items: string[];
+}
+
+const pilares: Pilar[] = [
+  {
+    icon: `<path d="M22 12h-4l-3 9L9 3l-3 9H2"/>`,
+    title: 'Brigadas Integrales de Salud',
+    items: [
+      'Valoración de riesgo cardiovascular',
+      'Tamizaje de mama y detección temprana',
+      'Tamizajes y prevención en salud',
+      'Promoción de estilos de vida saludable',
+    ],
+  },
+  {
+    icon: `<circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>`,
+    title: 'Bienestar Emocional y Salud Mental',
+    items: [
+      'Manejo del estrés y la ansiedad',
+      'Acompañamiento en procesos de duelo',
+      'Prevención del burnout laboral',
+      'Desarrollo de inteligencia emocional',
+    ],
+  },
+  {
+    icon: `<path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>`,
+    title: 'Talleres Grupales y Educativos',
+    items: [
+      'Comunicación asertiva y trabajo en equipo',
+      'Resolución de conflictos',
+      'Construcción de ambientes laborales saludables',
+      'Convivencia y cultura organizacional',
+    ],
+  },
+];
+
+const WHATSAPP_HREF = `https://wa.me/573004534836?text=${encodeURIComponent('Hola, quiero información sobre Bienestar Corporativo para mi empresa')}`;
+---
+
+<section id="corporativo" class="bg-neutral-50 py-24">
+  <div class="max-w-[1200px] mx-auto px-6">
+
+    <!-- Header -->
+    <div class="flex flex-col items-center text-center mb-14 fade-up">
+      <p class="text-[13px] font-semibold tracking-[2px] uppercase text-secondary-600 mb-3">
+        Para Empresas y Organizaciones
+      </p>
+      <h2 class="font-display text-[clamp(32px,5vw,44px)] font-bold text-neutral-900 leading-[1.15] mb-4">
+        Brigadas Integrales de Salud<br />y Bienestar Corporativo
+      </h2>
+      <p class="text-[17px] text-neutral-500 max-w-[600px] leading-[1.7]">
+        Diseñamos programas a medida para equipos de trabajo. Fortalecemos la salud física,
+        emocional y las relaciones dentro de tu organización.
+      </p>
+    </div>
+
+    <!-- 3 pilares -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      {
+        pilares.map((pilar) => (
+          <article class="bg-white rounded-[16px] p-8 border border-neutral-100 flex flex-col gap-6 fade-up">
+            <!-- Icono + título -->
+            <div class="flex flex-col gap-4">
+              <div
+                class="w-12 h-12 rounded-[10px] bg-secondary-50 flex items-center justify-center flex-shrink-0"
+                aria-hidden="true"
+              >
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="#0d9488"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  set:html={pilar.icon}
+                />
+              </div>
+              <h3 class="font-display text-[19px] font-bold text-neutral-900 leading-snug">
+                {pilar.title}
+              </h3>
+            </div>
+
+            <!-- Items -->
+            <ul class="flex flex-col gap-2.5 list-none m-0 p-0">
+              {
+                pilar.items.map((item) => (
+                  <li class="flex items-start gap-2.5">
+                    <div
+                      class="flex-shrink-0 w-5 h-5 rounded-full bg-secondary-50 flex items-center justify-center mt-px"
+                      aria-hidden="true"
+                    >
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#0d9488" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20 6 9 17 4 12"/>
+                      </svg>
+                    </div>
+                    <span class="text-[14px] text-neutral-600 leading-[1.6]">{item}</span>
+                  </li>
+                ))
+              }
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+
+    <!-- CTA -->
+    <div class="flex justify-center fade-up">
+      <a
+        href={WHATSAPP_HREF}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-3 bg-secondary-600 text-white px-9 py-4 rounded-[10px] text-[16px] font-semibold shadow-[0_4px_16px_rgba(13,148,136,0.25)] hover:bg-secondary-700 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(13,148,136,0.35)] transition-all duration-200"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        Cotizar para mi empresa
+      </a>
+    </div>
+
+  </div>
+</section>

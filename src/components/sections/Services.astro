@@ -25,14 +25,14 @@ const services: Service[] = [
     icon: `<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>`,
     title: 'Servicios de Salud Complementarios',
     description:
-      'Pediatría, optometría, atención psicológica a domicilio y cuidado post-quirúrgico en casa.',
+      'Pediatría, optometría, atención psicológica a domicilio, cuidado post-quirúrgico y cuidados paliativos en casa.',
     iconClass: 'bg-curious-blue-50 text-curious-blue-600',
   },
   {
     icon: `<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>`,
-    title: 'Cuidado Neonatal y Perinatal',
+    title: 'Salud Materno-Perinatal y Neonatal',
     description:
-      'Atención especializada para recién nacidos y madres en etapa perinatal. Seguimiento médico, controles y acompañamiento.',
+      'Acompañamiento especializado durante la gestación, posparto, lactancia y cuidado del recién nacido. Seguimiento clínico y educación en salud.',
     iconClass: 'bg-secondary-50 text-secondary-600',
   },
   {
@@ -41,6 +41,13 @@ const services: Service[] = [
     description:
       'Orientación profesional en salud reproductiva, métodos anticonceptivos, fertilidad y toma de decisiones informadas.',
     iconClass: 'bg-[#fef3c7] text-[#d97706]',
+  },
+  {
+    icon: `<circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>`,
+    title: 'Salud Mental y Bienestar Emocional',
+    description:
+      'Espacios vivenciales, talleres y experiencias terapéuticas que integran psicología, espiritualidad consciente y medicina tradicional. Especialmente en comunidades rurales.',
+    iconClass: 'bg-[#f3e8ff] text-[#9333ea]',
   },
 ];
 ---
@@ -62,15 +69,11 @@ const services: Service[] = [
       </p>
     </div>
 
-    <!-- Grid 5 cards: 3+2 en desktop -->
+    <!-- Grid 6 cards: 3+3 en desktop -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {
-        services.map((service, index) => (
-          <article
-            class={`service-card-hover relative bg-white rounded-[16px] p-8 border border-neutral-100 hover:border-curious-blue-200 hover:shadow-[0_12px_32px_rgba(1,151,227,0.08)] hover:-translate-y-1 transition-all duration-300 overflow-hidden fade-up ${
-              index === 4 ? 'sm:col-span-2 lg:col-span-1 lg:col-start-2' : ''
-            }`}
-          >
+        services.map((service) => (
+          <article class="service-card-hover relative bg-white rounded-[16px] p-8 border border-neutral-100 hover:border-curious-blue-200 hover:shadow-[0_12px_32px_rgba(1,151,227,0.08)] hover:-translate-y-1 transition-all duration-300 overflow-hidden fade-up">
             <div
               class={`w-[52px] h-[52px] rounded-[10px] flex items-center justify-center mb-5 ${service.iconClass}`}
               aria-hidden="true"
