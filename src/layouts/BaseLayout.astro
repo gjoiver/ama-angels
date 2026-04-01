@@ -1,0 +1,110 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+}
+
+const {
+  title = 'AMA Angels | Enfermeras en tu Casa · Servicios Médicos & Turismo Médico en Colombia',
+  description = 'AMA Angels: enfermeras en tu casa. Servicios médicos especializados, cirugía plástica, turismo médico y atención integral en Colombia. Financiación disponible.',
+  ogImage = '/og-image.jpg',
+} = Astro.props;
+
+const schemaOrg = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalOrganization',
+  name: 'AMA Angels',
+  description:
+    'Enfermeras en tu casa. Servicios médicos especializados, cirugía plástica y turismo médico en Colombia',
+  url: 'https://www.amaangels.com.co',
+  telephone: '+57-300-000-0000',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Bogotá',
+    addressCountry: 'CO',
+  },
+  medicalSpecialty: ['PlasticSurgery', 'Pediatrics', 'Optometry', 'Psychiatry', 'GeneralPractice'],
+  availableService: [
+    { '@type': 'MedicalService', name: 'Turismo Médico' },
+    { '@type': 'MedicalService', name: 'Cirugía Plástica y Estética' },
+    { '@type': 'MedicalService', name: 'Consulta Médica Especializada' },
+    { '@type': 'MedicalService', name: 'Atención Domiciliaria' },
+    { '@type': 'MedicalService', name: 'Planificación Familiar' },
+    { '@type': 'MedicalService', name: 'Asesoría Legal en Salud' },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="enfermeras a domicilio Colombia, turismo médico Colombia, cirugía plástica Bogotá, servicios de salud, AMA Angels, cuidado domiciliario"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_CO" />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Schema.org MedicalOrganization -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- Fonts con preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="text-neutral-800 bg-white">
+    <!-- Skip to content -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:bg-white focus:text-curious-blue-700 focus:px-4 focus:py-2 focus:rounded-lg focus:font-semibold focus:shadow-lg"
+    >
+      Saltar al contenido
+    </a>
+
+    <slot />
+
+    <!-- Intersection Observer para animaciones fade-up -->
+    <script>
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>

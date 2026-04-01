@@ -1,0 +1,74 @@
+---
+interface Feature {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+const features: Feature[] = [
+  {
+    icon: `<path d="M16 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="M2 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1z"/><path d="M7 21h10"/><line x1="12" y1="3" x2="12" y2="21"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/>`,
+    title: 'Derechos del Paciente',
+    description: 'Asesoría sobre tus derechos ante EPS, IPS y entidades de salud.',
+  },
+  {
+    icon: `<path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><line x1="12" y1="11" x2="16" y2="11"/><line x1="12" y1="16" x2="16" y2="16"/><line x1="8" y1="11" x2="8.01" y2="11"/><line x1="8" y1="16" x2="8.01" y2="16"/>`,
+    title: 'Reclamaciones Médicas',
+    description: 'Acompañamiento en procesos de reclamación y tutelas en salud.',
+  },
+  {
+    icon: `<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>`,
+    title: 'Consultas Legales Generales',
+    description: 'Orientación jurídica vinculada al sector salud para médicos y pacientes.',
+  },
+];
+---
+
+<section id="legal" class="bg-neutral-900 relative overflow-hidden py-24">
+  <!-- Glow decorativo -->
+  <div
+    class="absolute -top-[50%] -right-[20%] w-[600px] h-[600px] rounded-full pointer-events-none"
+    style="background: radial-gradient(circle, rgba(1,151,227,0.15) 0%, transparent 70%);"
+    aria-hidden="true"
+  ></div>
+
+  <div class="max-w-[1200px] mx-auto px-6 relative z-10">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Texto -->
+      <div class="fade-up flex flex-col gap-0">
+        <p class="text-[13px] font-semibold tracking-[2px] uppercase text-curious-blue-300 mb-3">
+          Asesoría Legal
+        </p>
+        <h2 class="font-display text-[clamp(32px,5vw,44px)] font-bold text-white leading-[1.15] mb-4">
+          Asesoría Legal en Salud
+        </h2>
+        <p class="text-[17px] text-white/60 max-w-[560px] leading-[1.7]">
+          Orientación legal especializada para proteger tus derechos como paciente. Respaldamos tu
+          bienestar desde lo médico y lo jurídico.
+        </p>
+      </div>
+
+      <!-- Features -->
+      <div class="flex flex-col gap-4 fade-up">
+        {
+          features.map((feature) => (
+            <div class="flex items-start gap-4 p-5 bg-white/5 rounded-[10px] border border-white/[0.08]">
+              <div
+                class="flex-shrink-0 w-10 h-10 rounded-[6px] bg-curious-blue-600 flex items-center justify-center"
+                aria-hidden="true"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={feature.icon} />
+              </div>
+              <div class="flex flex-col gap-0.5">
+                <h3 class="font-semibold text-white text-[15px]">{feature.title}</h3>
+                <p class="text-[14px] text-white/50 leading-[1.6]">{feature.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+    </div>
+  </div>
+</section>

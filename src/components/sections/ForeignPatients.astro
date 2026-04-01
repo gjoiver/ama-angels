@@ -1,0 +1,88 @@
+---
+const steps = [
+  {
+    num: 1,
+    title: 'Contacto y Valoración',
+    description:
+      'Envíanos tu caso por WhatsApp o formulario. Nuestro equipo médico evalúa y te asesora sin costo.',
+  },
+  {
+    num: 2,
+    title: 'Planificación del Viaje',
+    description:
+      'Coordinamos fechas, hospedaje y traslados. Te recogemos en el aeropuerto y te acompañamos a cada cita.',
+  },
+  {
+    num: 3,
+    title: 'Procedimiento y Recuperación',
+    description:
+      'Atención médica de primer nivel con seguimiento post-quirúrgico en tu alojamiento o clínica.',
+  },
+  {
+    num: 4,
+    title: 'Seguimiento Remoto',
+    description:
+      'Una vez en tu país, mantenemos contacto para control y seguimiento de tu recuperación.',
+  },
+] as const;
+---
+
+<section class="bg-white py-24">
+  <div class="max-w-[1200px] mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Pasos -->
+      <div class="fade-up flex flex-col gap-0">
+        <p class="text-[13px] font-semibold tracking-[2px] uppercase text-curious-blue-500 mb-3">
+          Para Extranjeros
+        </p>
+        <h2 class="font-display text-[clamp(32px,5vw,44px)] font-bold text-neutral-900 leading-[1.15] mb-4">
+          Tu viaje médico,<br />coordinado de inicio a fin
+        </h2>
+        <p class="text-[17px] text-neutral-500 max-w-[560px] leading-[1.7] mb-8">
+          Logística completa para pacientes internacionales. Nos encargamos de todo para que solo
+          te preocupes por tu salud.
+        </p>
+
+        <ol class="flex flex-col gap-6 list-none m-0 p-0">
+          {
+            steps.map((step) => (
+              <li class="flex items-start gap-5">
+                <div
+                  class="flex-shrink-0 w-11 h-11 rounded-full bg-curious-blue-50 border-2 border-curious-blue-200 flex items-center justify-center font-bold text-[18px] text-curious-blue-600"
+                  aria-hidden="true"
+                >
+                  {step.num}
+                </div>
+                <div class="flex flex-col gap-0.5 pt-1.5">
+                  <h3 class="font-bold text-neutral-900 text-[16px]">{step.title}</h3>
+                  <p class="text-[14px] text-neutral-500 leading-[1.6]">{step.description}</p>
+                </div>
+              </li>
+            ))
+          }
+        </ol>
+      </div>
+
+      <!-- Visual decorativo -->
+      <div
+        class="hidden lg:flex flex-col items-center justify-center gap-6 min-h-[400px] rounded-[24px] p-12 fade-up"
+        style="background: linear-gradient(135deg, #EFF9FF, #f0fdfa);"
+        aria-hidden="true"
+      >
+        <!-- TODO: reemplazar con ilustración de mapa/avión profesional -->
+        <div class="w-24 h-24 rounded-full bg-white shadow-[0_8px_32px_rgba(1,151,227,0.12)] flex items-center justify-center">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#0068AA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+          </svg>
+        </div>
+        <p class="font-display text-[22px] text-curious-blue-700 text-center leading-snug">
+          Pacientes de<br />más de 15 países
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>

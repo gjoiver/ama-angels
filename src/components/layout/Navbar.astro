@@ -1,0 +1,179 @@
+---
+---
+
+<nav
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-[100] bg-white/[0.92] backdrop-blur-[20px] border-b border-neutral-100 transition-shadow duration-300"
+>
+  <div class="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-[72px]">
+    <!-- Logo -->
+    <a href="#inicio" class="flex items-center">
+      <img
+        src="/logo-ama-angels.png"
+        alt="AMA Angels — Enfermeras en tu Casa"
+        class="h-12 w-auto object-contain"
+        width="160"
+        height="48"
+      />
+    </a>
+
+    <!-- Links desktop -->
+    <ul class="hidden md:flex items-center gap-8 list-none m-0 p-0">
+      <li>
+        <a
+          href="#servicios"
+          class="nav-link text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors duration-200"
+        >
+          Servicios
+        </a>
+      </li>
+      <li>
+        <a
+          href="#turismo"
+          class="nav-link text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors duration-200"
+        >
+          Turismo Médico
+        </a>
+      </li>
+      <li>
+        <a
+          href="#financiacion"
+          class="nav-link text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors duration-200"
+        >
+          Financiación
+        </a>
+      </li>
+      <li>
+        <a
+          href="#legal"
+          class="nav-link text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors duration-200"
+        >
+          Asesoría Legal
+        </a>
+      </li>
+      <li>
+        <a
+          href="#contacto"
+          class="nav-link text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors duration-200"
+        >
+          Contacto
+        </a>
+      </li>
+    </ul>
+
+    <!-- CTA desktop -->
+    <a
+      href="#contacto"
+      class="hidden md:inline-flex items-center bg-curious-blue-600 text-white px-[22px] py-[10px] rounded-[10px] text-[14px] font-semibold hover:bg-curious-blue-700 hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(1,151,227,0.3)] transition-all duration-200"
+    >
+      Agendar Cita
+    </a>
+
+    <!-- Hamburger mobile -->
+    <button
+      id="mobile-toggle"
+      class="md:hidden flex items-center justify-center p-2 rounded-md hover:bg-neutral-100 transition-colors"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#374151"
+        stroke-width="2"
+        stroke-linecap="round"
+        aria-hidden="true"
+      >
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Menú mobile -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden border-t border-neutral-100 bg-white"
+    aria-hidden="true"
+  >
+    <ul class="flex flex-col px-6 py-4 gap-1 list-none m-0 p-0">
+      <li>
+        <a
+          href="#servicios"
+          class="block py-2 text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors"
+        >
+          Servicios
+        </a>
+      </li>
+      <li>
+        <a
+          href="#turismo"
+          class="block py-2 text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors"
+        >
+          Turismo Médico
+        </a>
+      </li>
+      <li>
+        <a
+          href="#financiacion"
+          class="block py-2 text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors"
+        >
+          Financiación
+        </a>
+      </li>
+      <li>
+        <a
+          href="#legal"
+          class="block py-2 text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors"
+        >
+          Asesoría Legal
+        </a>
+      </li>
+      <li>
+        <a
+          href="#contacto"
+          class="block py-2 text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors"
+        >
+          Contacto
+        </a>
+      </li>
+      <li class="pt-3 pb-1 px-0">
+        <a
+          href="#contacto"
+          class="inline-flex bg-curious-blue-600 text-white px-[22px] py-[10px] rounded-[10px] text-[14px] font-semibold"
+        >
+          Agendar Cita
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  const mobileToggle = document.getElementById('mobile-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  window.addEventListener('scroll', () => {
+    navbar?.classList.toggle('shadow-[0_4px_24px_rgba(0,0,0,0.06)]', window.scrollY > 20);
+  });
+
+  mobileToggle?.addEventListener('click', () => {
+    const isOpen = !mobileMenu?.classList.contains('hidden');
+    mobileMenu?.classList.toggle('hidden', isOpen);
+    mobileMenu?.setAttribute('aria-hidden', String(isOpen));
+    mobileToggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+
+  mobileMenu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.setAttribute('aria-hidden', 'true');
+      mobileToggle?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
