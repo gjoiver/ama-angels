@@ -1,14 +1,14 @@
 export const hero = {
   'hero.badge': 'Enfermeras en tu Casa',
-  'hero.heading': 'Cuidado médico en la comodidad de tu hogar',
-  'hero.headingHighlight': 'comodidad de tu hogar',
+  'hero.headingPrefix': 'Cuidado médico en la',
+  'hero.headingHighlight': 'comodidad de tu hogar.',
   'hero.description':
-    'AMA ANGELS te ofrece enfermeras a domicilio, turismo médico, cirugía plástica y atención integral para pacientes nacionales e internacionales. Financiación disponible para todos los procedimientos.',
-  'hero.ctaPrimary': 'Agendar Consulta',
+    'Enfermería domiciliaria, turismo médico y cirugía estética en Colombia — con una enfermera dedicada a tu lado y atención 24/7 por WhatsApp.',
+  'hero.ctaPrimary': 'Habla con nosotros',
   'hero.ctaSecondary': 'Conocer Servicios',
-  'hero.visualTitle': 'Atención Médica de Excelencia',
+  'hero.visualTitle': 'Nunca estás solo con AMA ANGELS',
   'hero.badge1.line1': 'Atención 24/7',
   'hero.badge1.line2': 'por WhatsApp',
-  'hero.badge2.line1': 'Enfermera asignada',
-  'hero.badge2.line2': 'durante tu recuperación',
+  'hero.badge2.line1': 'Enfermera dedicada',
+  'hero.badge2.line2': 'solo para ti',
 } as const;

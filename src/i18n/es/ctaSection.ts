@@ -1,9 +1,9 @@
 export const ctaSection = {
-  'cta.eyebrow': '¿Listo para empezar?',
-  'cta.heading': 'Agenda tu cita hoy',
+  'cta.eyebrow': 'Empieza hoy',
+  'cta.heading': 'Tu primer paso es una conversación. Y es gratis.',
   'cta.description':
-    'Contáctanos por WhatsApp para una valoración inicial sin costo. Nuestro equipo te atenderá en minutos.',
-  'cta.whatsappMessage': 'Hola, quiero agendar una cita',
-  'cta.ctaWhatsapp': 'Escríbenos por WhatsApp',
-  'cta.ctaPhone': 'Llamar Ahora',
+    'Cuéntanos qué necesitas por WhatsApp. En menos de 10 minutos, un profesional de nuestro equipo te responde con orientación personalizada — sin costo, sin compromiso, sin formularios.',
+  'cta.whatsappMessage': 'Hola, quiero información sobre los servicios de AMA ANGELS',
+  'cta.ctaWhatsapp': 'Escríbeme por WhatsApp ahora',
+  'cta.ctaPhone': 'Prefiero llamar',
 } as const;

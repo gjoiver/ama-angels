@@ -1,6 +1,6 @@
 export const financingBanner = {
-  'financing.heading': 'Procedimientos Médicos Financiados',
+  'financing.heading': 'Tu salud no puede esperar — tu bolsillo tampoco tiene que sufrir',
   'financing.description':
-    'Opciones de financiación y planes de pago para procedimientos médicos y quirúrgicos. Accede a tratamientos sin necesidad de pago inmediato total.',
-  'financing.cta': 'Solicitar Financiación →',
+    'Planes de financiación flexibles para que accedas al procedimiento que necesitas, sin comprometer tu estabilidad. Consulta tu caso — te explicamos todas las opciones sin compromiso.',
+  'financing.cta': 'Consultar financiación — es gratis',
 } as const;
