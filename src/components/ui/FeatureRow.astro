@@ -1,0 +1,19 @@
+---
+import IconBox from '@ui/IconBox.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  iconPath: string;
+}
+
+const { title, description, iconPath } = Astro.props;
+---
+
+<div class="flex items-start gap-4 p-5 bg-white/5 rounded-[10px] border border-white/[0.08]">
+  <IconBox path={iconPath} class="bg-curious-blue-600 text-white" size="md" />
+  <div class="flex flex-col gap-0.5">
+    <h3 class="font-semibold text-white text-[15px]">{title}</h3>
+    <p class="text-[14px] text-white/50 leading-[1.6]">{description}</p>
+  </div>
+</div>

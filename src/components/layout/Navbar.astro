@@ -1,4 +1,16 @@
 ---
+import { getLangFromUrl, useTranslations } from '@i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const translation = useTranslations(lang);
+
+const navLinks = [
+  { label: translation('nav.services'),  href: '#servicios' },
+  { label: translation('nav.tourism'),   href: '#turismo' },
+  { label: translation('nav.corporate'), href: '#corporativo' },
+  { label: translation('nav.financing'), href: '#financiacion' },
+  { label: translation('nav.legal'),     href: '#legal' },
+  { label: translation('nav.contact'),   href: '#contacto' },
+];
 ---
 
 <nav
@@ -19,54 +31,13 @@
 
     <!-- Links desktop -->
     <ul class="hidden md:flex items-center gap-8 list-none m-0 p-0">
-      <li>
-        <a
-          href="#servicios"
-          class="nav-link text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors duration-200"
-        >
-          Servicios
-        </a>
-      </li>
-      <li>
-        <a
-          href="#turismo"
-          class="nav-link text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors duration-200"
-        >
-          Turismo Médico
-        </a>
-      </li>
-      <li>
-        <a
-          href="#corporativo"
-          class="nav-link text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors duration-200"
-        >
-          Corporativo
-        </a>
-      </li>
-      <li>
-        <a
-          href="#financiacion"
-          class="nav-link text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors duration-200"
-        >
-          Financiación
-        </a>
-      </li>
-      <li>
-        <a
-          href="#legal"
-          class="nav-link text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors duration-200"
-        >
-          Asesoría Legal
-        </a>
-      </li>
-      <li>
-        <a
-          href="#contacto"
-          class="nav-link text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors duration-200"
-        >
-          Contacto
-        </a>
-      </li>
+      {navLinks.map((link) => (
+        <li>
+          <a href={link.href} class="nav-link text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors duration-200">
+            {link.label}
+          </a>
+        </li>
+      ))}
     </ul>
 
     <!-- CTA desktop -->
@@ -74,7 +45,7 @@
       href="#contacto"
       class="hidden md:inline-flex items-center bg-curious-blue-600 text-white px-[22px] py-[10px] rounded-[10px] text-[14px] font-semibold hover:bg-curious-blue-700 hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(1,151,227,0.3)] transition-all duration-200"
     >
-      Agendar Cita
+      {translation('nav.cta')}
     </a>
 
     <!-- Hamburger mobile -->
@@ -105,91 +76,24 @@
   <!-- Menú mobile -->
   <div
     id="mobile-menu"
-    class="hidden md:hidden border-t border-neutral-100 bg-white"
+    class="hidden md:hidden border-translation border-neutral-100 bg-white"
     aria-hidden="true"
   >
     <ul class="flex flex-col px-6 py-4 gap-1 list-none m-0 p-0">
-      <li>
-        <a
-          href="#servicios"
-          class="block py-2 text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors"
-        >
-          Servicios
-        </a>
-      </li>
-      <li>
-        <a
-          href="#turismo"
-          class="block py-2 text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors"
-        >
-          Turismo Médico
-        </a>
-      </li>
-      <li>
-        <a
-          href="#corporativo"
-          class="block py-2 text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors"
-        >
-          Corporativo
-        </a>
-      </li>
-      <li>
-        <a
-          href="#financiacion"
-          class="block py-2 text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors"
-        >
-          Financiación
-        </a>
-      </li>
-      <li>
-        <a
-          href="#legal"
-          class="block py-2 text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors"
-        >
-          Asesoría Legal
-        </a>
-      </li>
-      <li>
-        <a
-          href="#contacto"
-          class="block py-2 text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors"
-        >
-          Contacto
-        </a>
-      </li>
+      {navLinks.map((link) => (
+        <li>
+          <a href={link.href} class="block py-2 text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors">
+            {link.label}
+          </a>
+        </li>
+      ))}
       <li class="pt-3 pb-1 px-0">
-        <a
-          href="#contacto"
-          class="inline-flex bg-curious-blue-600 text-white px-[22px] py-[10px] rounded-[10px] text-[14px] font-semibold"
-        >
-          Agendar Cita
+        <a href="#contacto" class="inline-flex bg-curious-blue-600 text-white px-[22px] py-[10px] rounded-[10px] text-[14px] font-semibold">
+          {translation('nav.cta')}
         </a>
       </li>
     </ul>
   </div>
 </nav>
 
-<script>
-  const navbar = document.getElementById('navbar');
-  const mobileToggle = document.getElementById('mobile-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-
-  window.addEventListener('scroll', () => {
-    navbar?.classList.toggle('shadow-[0_4px_24px_rgba(0,0,0,0.06)]', window.scrollY > 20);
-  });
-
-  mobileToggle?.addEventListener('click', () => {
-    const isOpen = !mobileMenu?.classList.contains('hidden');
-    mobileMenu?.classList.toggle('hidden', isOpen);
-    mobileMenu?.setAttribute('aria-hidden', String(isOpen));
-    mobileToggle.setAttribute('aria-expanded', String(!isOpen));
-  });
-
-  mobileMenu?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      mobileMenu.setAttribute('aria-hidden', 'true');
-      mobileToggle?.setAttribute('aria-expanded', 'false');
-    });
-  });
-</script>
+<script src="../../scripts/navbar.ts"></script>

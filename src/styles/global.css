@@ -1,8 +1,10 @@
 @import "tailwindcss";
+@import "./animations.css";
+@import "./components.css";
 
 @theme {
   /* Curious Blue — Marca primaria */
-  --color-curious-blue-50: #EFF9FF;
+  --color-curious-blue-50:  #EFF9FF;
   --color-curious-blue-100: #DEF1FF;
   --color-curious-blue-200: #B6E5FF;
   --color-curious-blue-300: #76D2FF;
@@ -15,7 +17,7 @@
   --color-curious-blue-950: #042E4D;
 
   /* Secondary — Teal */
-  --color-secondary-50: #f0fdfa;
+  --color-secondary-50:  #f0fdfa;
   --color-secondary-100: #ccfbf1;
   --color-secondary-500: #14B8A6;
   --color-secondary-600: #0d9488;
@@ -26,7 +28,7 @@
 
   /* Tipografía */
   --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-body:    'Plus Jakarta Sans', system-ui, sans-serif;
 }
 
 /* ==================== BASE ==================== */
@@ -35,7 +37,6 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Offset para navbar fija en todos los anchor targets */
 section[id] {
   scroll-margin-top: 72px;
 }
@@ -43,107 +44,4 @@ section[id] {
 body {
   font-family: var(--font-body);
   overflow-x: hidden;
-}
-
-/* ==================== FADE-UP ANIMATION ==================== */
-.fade-up {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-.fade-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ==================== HERO HIGHLIGHT ==================== */
-.hero-highlight {
-  position: relative;
-  color: #0083D3;
-}
-
-.hero-highlight::after {
-  content: '';
-  position: absolute;
-  bottom: 2px;
-  left: 0;
-  right: 0;
-  height: 8px;
-  background: #B6E5FF;
-  border-radius: 4px;
-  z-index: -1;
-  opacity: 0.6;
-}
-
-/* ==================== NAV LINK UNDERLINE ==================== */
-.nav-link {
-  position: relative;
-}
-
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: #0197E3;
-  border-radius: 2px;
-  transition: width 0.3s;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-/* ==================== SERVICE CARD TOP BORDER ==================== */
-.service-card-hover::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: #0197E3;
-  transform: scaleX(0);
-  transition: transform 0.3s;
-}
-
-.service-card-hover:hover::before {
-  transform: scaleX(1);
-}
-
-/* ==================== ANIMATIONS ==================== */
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes pulse-green {
-  0%, 100% {
-    box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
-  }
-  50% {
-    box-shadow:
-      0 6px 24px rgba(37, 211, 102, 0.4),
-      0 0 0 12px rgba(37, 211, 102, 0.1);
-  }
-}
-
-/* ==================== REDUCED MOTION ==================== */
-@media (prefers-reduced-motion: reduce) {
-  .fade-up {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-
-  @keyframes float {
-    0%, 100% { transform: none; }
-  }
-
-  @keyframes pulse-green {
-    0%, 100% { box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4); }
-  }
 }

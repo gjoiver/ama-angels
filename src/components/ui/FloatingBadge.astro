@@ -1,0 +1,30 @@
+---
+interface Props {
+  line1: string;
+  line2: string;
+  position: 'left' | 'right';
+}
+
+const { line1, line2, position } = Astro.props;
+
+const positionClass = position === 'left'
+  ? 'absolute top-[15%] -left-[30px]'
+  : 'absolute bottom-[20%] -right-[20px]';
+
+const delay = position === 'left' ? '0s' : '1.5s';
+---
+
+<div
+  class={`${positionClass} bg-white px-5 py-3.5 rounded-[16px] shadow-[0_8px_32px_rgba(0,0,0,0.1)] flex items-center gap-3`}
+  style={`animation: float 4s ease-in-out infinite; animation-delay: ${delay};`}
+  aria-hidden="true"
+>
+  <div class="flex-shrink-0 w-8 h-8 rounded-full bg-curious-blue-50 flex items-center justify-center">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0083D3" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="20 6 9 17 4 12"/>
+    </svg>
+  </div>
+  <div class="text-[13px] font-semibold text-neutral-700 leading-tight">
+    {line1}<br />{line2}
+  </div>
+</div>

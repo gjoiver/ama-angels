@@ -1,0 +1,48 @@
+---
+interface Props {
+  href: string;
+  variant?: 'primary' | 'secondary' | 'whatsapp' | 'outline' | 'outline-white' | 'white-on-dark';
+  size?: 'sm' | 'md' | 'lg';
+  target?: '_blank' | '_self';
+  rel?: string;
+  class?: string;
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  target,
+  rel,
+  class: className = '',
+} = Astro.props;
+
+const base = 'inline-flex items-center justify-center gap-2.5 font-semibold rounded-[10px] transition-all duration-200 hover:-translate-y-0.5';
+
+const variants: Record<string, string> = {
+  primary:
+    'bg-curious-blue-600 text-white hover:bg-curious-blue-700 shadow-[0_4px_16px_rgba(1,151,227,0.25)] hover:shadow-[0_8px_24px_rgba(1,151,227,0.35)]',
+  secondary:
+    'bg-secondary-600 text-white hover:bg-secondary-700 shadow-[0_4px_16px_rgba(13,148,136,0.25)] hover:shadow-[0_8px_24px_rgba(13,148,136,0.35)]',
+  whatsapp:
+    'bg-whatsapp text-white font-bold hover:opacity-90 shadow-[0_4px_16px_rgba(37,211,102,0.3)] hover:shadow-[0_8px_24px_rgba(37,211,102,0.4)]',
+  outline:
+    'bg-white text-curious-blue-600 border-2 border-curious-blue-200 hover:border-curious-blue-400 hover:bg-curious-blue-50',
+  'outline-white':
+    'bg-white/15 text-white border border-white/30 hover:bg-white/20',
+  'white-on-dark':
+    'bg-white text-secondary-700 font-bold hover:shadow-[0_8px_24px_rgba(0,0,0,0.2)]',
+};
+
+const sizes: Record<string, string> = {
+  sm: 'px-5 py-2.5 text-[14px]',
+  md: 'px-8 py-[15px] text-[16px]',
+  lg: 'px-9 py-4 text-[16px]',
+};
+
+const classes = [base, variants[variant], sizes[size], className].filter(Boolean).join(' ');
+---
+
+<a href={href} target={target} rel={rel} class={classes}>
+  <slot />
+</a>

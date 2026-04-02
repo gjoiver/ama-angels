@@ -1,0 +1,23 @@
+export const corporateBienestar = {
+  'corporate.eyebrow': 'Para Empresas y Organizaciones',
+  'corporate.heading': 'Brigadas Integrales de Salud y Bienestar Corporativo',
+  'corporate.description':
+    'Diseñamos programas a medida para equipos de trabajo. Fortalecemos la salud física, emocional y las relaciones dentro de tu organización.',
+  'corporate.whatsappMessage': 'Hola, quiero información sobre Bienestar Corporativo para mi empresa',
+  'corporate.cta': 'Cotizar para mi empresa',
+  'corporate.pillar1.title': 'Brigadas Integrales de Salud',
+  'corporate.pillar1.item1': 'Valoración de riesgo cardiovascular',
+  'corporate.pillar1.item2': 'Tamizaje de mama y detección temprana',
+  'corporate.pillar1.item3': 'Tamizajes y prevención en salud',
+  'corporate.pillar1.item4': 'Promoción de estilos de vida saludable',
+  'corporate.pillar2.title': 'Bienestar Emocional y Salud Mental',
+  'corporate.pillar2.item1': 'Manejo del estrés y la ansiedad',
+  'corporate.pillar2.item2': 'Acompañamiento en procesos de duelo',
+  'corporate.pillar2.item3': 'Prevención del burnout laboral',
+  'corporate.pillar2.item4': 'Desarrollo de inteligencia emocional',
+  'corporate.pillar3.title': 'Talleres Grupales y Educativos',
+  'corporate.pillar3.item1': 'Comunicación asertiva y trabajo en equipo',
+  'corporate.pillar3.item2': 'Resolución de conflictos',
+  'corporate.pillar3.item3': 'Construcción de ambientes laborales saludables',
+  'corporate.pillar3.item4': 'Convivencia y cultura organizacional',
+} as const;

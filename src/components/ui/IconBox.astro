@@ -1,0 +1,25 @@
+---
+import Icon from '@ui/Icon.astro';
+
+interface Props {
+  path: string;
+  class?: string;
+  size?: 'sm' | 'md' | 'lg';
+  iconSize?: number;
+}
+
+const { path, class: className = '', size = 'md', iconSize } = Astro.props;
+
+const boxSizes = {
+  sm: 'w-8 h-8 rounded-[6px]',
+  md: 'w-10 h-10 rounded-[8px]',
+  lg: 'w-[52px] h-[52px] rounded-[10px]',
+};
+
+const defaultIconSizes = { sm: 16, md: 20, lg: 24 };
+const resolvedIconSize = iconSize ?? defaultIconSizes[size];
+---
+
+<div class={`flex items-center justify-center flex-shrink-0 ${boxSizes[size]} ${className}`} aria-hidden="true">
+  <Icon path={path} size={resolvedIconSize} />
+</div>

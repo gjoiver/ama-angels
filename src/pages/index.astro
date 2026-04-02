@@ -1,15 +1,15 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Navbar from '../components/layout/Navbar.astro';
-import Footer from '../components/layout/Footer.astro';
-import Hero from '../components/sections/Hero.astro';
-import Services from '../components/sections/Services.astro';
-import TurismoMedico from '../components/sections/TurismoMedico.astro';
-import CorporateBienestar from '../components/sections/CorporateBienestar.astro';
-import FinancingBanner from '../components/sections/FinancingBanner.astro';
-import LegalSection from '../components/sections/LegalSection.astro';
-import CtaSection from '../components/sections/CtaSection.astro';
-import WhatsAppFloat from '../components/ui/WhatsAppFloat.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Navbar from '@layout/Navbar.astro';
+import Footer from '@layout/Footer.astro';
+import Hero from '@sections/Hero.astro';
+import Services from '@sections/Services.astro';
+import MedicalTourism from '@sections/MedicalTourism.astro';
+import CorporateBienestar from '@sections/CorporateBienestar.astro';
+import FinancingBanner from '@sections/FinancingBanner.astro';
+import LegalSection from '@sections/LegalSection.astro';
+import CtaSection from '@sections/CtaSection.astro';
+import WhatsAppFloat from '@ui/WhatsAppFloat.astro';
 ---
 
 <BaseLayout>
@@ -17,7 +17,7 @@ import WhatsAppFloat from '../components/ui/WhatsAppFloat.astro';
   <main id="main-content">
     <Hero />
     <Services />
-    <TurismoMedico />
+    <MedicalTourism />
     <CorporateBienestar />
     <FinancingBanner />
     <LegalSection />

@@ -1,18 +1,24 @@
 ---
+import { getLangFromUrl, useTranslations } from '@i18n/utils';
+import { PHONE_HREF, PHONE_DISPLAY, EMAIL, ADDRESS } from '@core/constants/contact';
+
+const lang = getLangFromUrl(Astro.url);
+const translation = useTranslations(lang);
+
 const currentYear = new Date().getFullYear();
 
-const services = [
-  { label: 'Turismo Médico', href: '#turismo' },
-  { label: 'Cirugía Plástica', href: '#servicios' },
-  { label: 'Consulta Especializada', href: '#servicios' },
-  { label: 'Atención Domiciliaria', href: '#servicios' },
-] as const;
+const footerServices = [
+  { label: translation('footer.link.tourism'),      href: '#turismo' },
+  { label: translation('footer.link.surgery'),      href: '#servicios' },
+  { label: translation('footer.link.consultation'), href: '#servicios' },
+  { label: translation('footer.link.homecare'),     href: '#servicios' },
+];
 
-const info = [
-  { label: 'Financiación', href: '#financiacion' },
-  { label: 'Política de Privacidad', href: '#' },
-  { label: 'Términos y Condiciones', href: '#' },
-] as const;
+const footerInfo = [
+  { label: translation('footer.link.financing'), href: '#financiacion' },
+  { label: translation('footer.link.privacy'),   href: '#' },
+  { label: translation('footer.link.terms'),     href: '#' },
+];
 ---
 
 <footer class="bg-neutral-900 text-white/70 pt-16 pb-8">
@@ -32,18 +38,15 @@ const info = [
             height="56"
           />
         </a>
-        <p class="text-[14px] leading-[1.7] max-w-[280px]">
-          Enfermeras en tu casa. Servicios médicos integrales para pacientes nacionales e
-          internacionales.
-        </p>
+        <p class="text-[14px] leading-[1.7] max-w-[280px]">{translation('footer.tagline')}</p>
       </div>
 
       <!-- Servicios -->
       <div>
-        <h4 class="text-white font-bold text-[14px] mb-5 uppercase tracking-[1px]">Servicios</h4>
+        <h4 class="text-white font-bold text-[14px] mb-5 uppercase tracking-[1px]">{translation('footer.col.services')}</h4>
         <ul class="flex flex-col gap-3 list-none m-0 p-0">
           {
-            services.map((item) => (
+            footerServices.map((item) => (
               <li>
                 <a
                   href={item.href}
@@ -59,12 +62,10 @@ const info = [
 
       <!-- Información -->
       <div>
-        <h4 class="text-white font-bold text-[14px] mb-5 uppercase tracking-[1px]">
-          Información
-        </h4>
+        <h4 class="text-white font-bold text-[14px] mb-5 uppercase tracking-[1px]">{translation('footer.col.info')}</h4>
         <ul class="flex flex-col gap-3 list-none m-0 p-0">
           {
-            info.map((item) => (
+            footerInfo.map((item) => (
               <li>
                 <a
                   href={item.href}
@@ -80,21 +81,21 @@ const info = [
 
       <!-- Contacto -->
       <div>
-        <h4 class="text-white font-bold text-[14px] mb-5 uppercase tracking-[1px]">Contacto</h4>
+        <h4 class="text-white font-bold text-[14px] mb-5 uppercase tracking-[1px]">{translation('footer.col.contact')}</h4>
         <ul class="flex flex-col gap-3 list-none m-0 p-0">
           <li class="flex items-start gap-2.5">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mt-0.5 flex-shrink-0 text-white/40" aria-hidden="true">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
               <circle cx="12" cy="10" r="3"/>
             </svg>
-            <span class="text-[14px]">Medellín, Colombia</span>
+            <span class="text-[14px]">{ADDRESS}</span>
           </li>
           <li class="flex items-center gap-2.5">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0 text-white/40" aria-hidden="true">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
             </svg>
-            <a href="tel:+573004534836" class="text-[14px] hover:text-curious-blue-300 transition-colors duration-200">
-              +57 300 453 4836
+            <a href={PHONE_HREF} class="text-[14px] hover:text-curious-blue-300 transition-colors duration-200">
+              {PHONE_DISPLAY}
             </a>
           </li>
           <li class="flex items-center gap-2.5">
@@ -102,8 +103,8 @@ const info = [
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
               <polyline points="22,6 12,13 2,6"/>
             </svg>
-            <a href="mailto:salud.encasa.amaangels@gmail.com" class="text-[14px] hover:text-curious-blue-300 transition-colors duration-200">
-              salud.encasa.amaangels@gmail.com
+            <a href={`mailto:${EMAIL}`} class="text-[14px] hover:text-curious-blue-300 transition-colors duration-200">
+              {EMAIL}
             </a>
           </li>
         </ul>
@@ -112,9 +113,9 @@ const info = [
     </div>
 
     <!-- Bottom bar -->
-    <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[13px] text-white/40">
-      <p>&copy; {currentYear} AMA ANGELS. Todos los derechos reservados.</p>
-      <p>Developed by JG</p>
+    <div class="border-translation border-white/10 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[13px] text-white/40">
+      <p>&copy; {currentYear} {translation('footer.copyright')}</p>
+      <p>{translation('footer.developer')}</p>
     </div>
 
   </div>

@@ -1,0 +1,56 @@
+/* ==================== NAV LINK ==================== */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #0197E3;
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ==================== HERO HIGHLIGHT ==================== */
+.hero-highlight {
+  position: relative;
+  color: #0083D3;
+}
+
+.hero-highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: #B6E5FF;
+  border-radius: 4px;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+/* ==================== SERVICE CARD TOP BORDER ==================== */
+.service-card-hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #0197E3;
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+
+.service-card-hover:hover::before {
+  transform: scaleX(1);
+}

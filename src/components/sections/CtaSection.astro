@@ -1,7 +1,14 @@
 ---
-const WHATSAPP_NUMBER = '573004534836';
-const WHATSAPP_MESSAGE = encodeURIComponent('Hola, quiero agendar una cita');
-const WHATSAPP_HREF = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
+import { getLangFromUrl, useTranslations } from '@i18n/utils';
+import { buildWhatsappUrl, PHONE_HREF } from '@core/constants/contact';
+import SectionHeader from '@ui/SectionHeader.astro';
+import Button from '@ui/Button.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const translation = useTranslations(lang);
+
+const WA_ICON = `<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.37 0-4.567-.68-6.435-1.852l-.45-.29-2.772.929.929-2.772-.29-.45A9.953 9.953 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>`;
+const PHONE_ICON = `<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>`;
 ---
 
 <section
@@ -11,43 +18,32 @@ const WHATSAPP_HREF = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}
 >
   <div class="max-w-[1200px] mx-auto px-6">
     <div class="flex flex-col items-center text-center gap-0 fade-up">
-      <p class="text-[13px] font-semibold tracking-[2px] uppercase text-curious-blue-500 mb-3">
-        ¿Listo para empezar?
-      </p>
-      <h2 class="font-display text-[clamp(32px,5vw,44px)] font-bold text-neutral-900 leading-[1.15] mb-4">
-        Agenda tu cita hoy
-      </h2>
-      <p class="text-[17px] text-neutral-500 max-w-[560px] leading-[1.7] mb-10">
-        Contáctanos por WhatsApp para una valoración inicial sin costo. Nuestro equipo te atenderá
-        en minutos.
-      </p>
 
-      <div class="flex flex-wrap items-center justify-center gap-4">
-        <!-- WhatsApp -->
-        <a
-          href={WHATSAPP_HREF}
+      <SectionHeader
+        eyebrow={translation('cta.eyebrow')}
+        heading={translation('cta.heading')}
+        description={translation('cta.description')}
+        class="mb-0"
+      />
+
+      <div class="flex flex-wrap items-center justify-center gap-4 mt-10">
+        <Button
+          href={buildWhatsappUrl(translation('cta.whatsappMessage'))}
+          variant="whatsapp"
+          size="lg"
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-3 bg-whatsapp text-white px-9 py-4 rounded-[10px] text-[16px] font-bold shadow-[0_4px_16px_rgba(37,211,102,0.3)] hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(37,211,102,0.4)] transition-all duration-200"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.611.611l4.458-1.495A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.37 0-4.567-.68-6.435-1.852l-.45-.29-2.772.929.929-2.772-.29-.45A9.953 9.953 0 012 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/>
-          </svg>
-          Escríbenos por WhatsApp
-        </a>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" set:html={WA_ICON} />
+          {translation('cta.ctaWhatsapp')}
+        </Button>
 
-        <!-- Teléfono -->
-        <a
-          href="tel:+573004534836"
-          class="inline-flex items-center gap-2.5 bg-curious-blue-600 text-white px-8 py-4 rounded-[10px] text-[16px] font-semibold shadow-[0_4px_16px_rgba(1,151,227,0.25)] hover:bg-curious-blue-700 hover:-translate-y-0.5 hover:shadow-[0_8px_24px_rgba(1,151,227,0.35)] transition-all duration-200"
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 2.18h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-          </svg>
-          Llamar Ahora
-        </a>
+        <Button href={PHONE_HREF} variant="primary" size="lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" set:html={PHONE_ICON} />
+          {translation('cta.ctaPhone')}
+        </Button>
       </div>
+
     </div>
   </div>
 </section>
