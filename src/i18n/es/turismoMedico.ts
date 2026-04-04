@@ -6,6 +6,7 @@ export const turismoMedico = {
   'tourism.visualTitle': 'Desde que aterrizas hasta que te recuperas',
   'tourism.whatsappMessage': 'Hola, quiero información sobre turismo médico',
   'tourism.cta': 'Consultar disponibilidad — es gratis',
+  'tourism.ctaMicro': 'Valoración gratuita. Sin papeleos.',
   'tourism.processTitle': '¿Cómo funciona?',
   'tourism.diff1.title': 'Atención 24/7',
   'tourism.diff1.description':

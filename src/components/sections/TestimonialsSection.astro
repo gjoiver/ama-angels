@@ -1,0 +1,37 @@
+---
+import { getLangFromUrl, useTranslations } from '@i18n/utils';
+import SectionHeader from '@ui/SectionHeader.astro';
+import TestimonialCard from '@ui/TestimonialCard.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const translation = useTranslations(lang);
+
+const testimonials = [1, 2, 3].map((n) => ({
+  quote: translation(`testimonials.t${n}.quote` as any),
+  name: translation(`testimonials.t${n}.name` as any),
+  service: translation(`testimonials.t${n}.service` as any),
+  origin: translation(`testimonials.t${n}.origin` as any),
+}));
+---
+
+<section id="testimonios" class="bg-neutral-50 py-24">
+  <div class="max-w-[1200px] mx-auto px-6">
+
+    <SectionHeader
+      eyebrow={translation('testimonials.eyebrow')}
+      heading={translation('testimonials.heading')}
+    />
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 fade-up">
+      {testimonials.map((testimonial) => (
+        <TestimonialCard
+          quote={testimonial.quote}
+          name={testimonial.name}
+          service={testimonial.service}
+          origin={testimonial.origin}
+        />
+      ))}
+    </div>
+
+  </div>
+</section>

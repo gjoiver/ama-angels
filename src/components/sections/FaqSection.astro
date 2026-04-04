@@ -1,0 +1,69 @@
+---
+import { getLangFromUrl, useTranslations } from '@i18n/utils';
+import SectionHeader from '@ui/SectionHeader.astro';
+
+const lang = getLangFromUrl(Astro.url);
+const translation = useTranslations(lang);
+
+const faqs = [
+  { q: translation('faq.q1'), a: translation('faq.a1') },
+  { q: translation('faq.q2'), a: translation('faq.a2') },
+  { q: translation('faq.q3'), a: translation('faq.a3') },
+  { q: translation('faq.q4'), a: translation('faq.a4') },
+  { q: translation('faq.q5'), a: translation('faq.a5') },
+];
+
+const CHEVRON_ICON = `<path d="m6 9 6 6 6-6"/>`;
+
+// Generate FAQPage structured data
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(({ q, a }) => ({
+    '@type': 'Question',
+    name: q,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: a,
+    },
+  })),
+};
+---
+
+<section id="faq" class="py-24 bg-white">
+  <div class="max-w-[720px] mx-auto px-6">
+    <SectionHeader
+      eyebrow={translation('faq.eyebrow')}
+      heading={translation('faq.heading')}
+    />
+
+    <div class="flex flex-col gap-3 fade-up">
+      {faqs.map(({ q, a }, i) => (
+        <details class="group rounded-2xl border border-neutral-150 bg-neutral-50/50 transition-all hover:border-curious-blue-200">
+          <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-[16px] font-semibold text-neutral-800 leading-snug list-none [&::-webkit-details-marker]:hidden">
+            <span class="pr-4">{q}</span>
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="shrink-0 text-neutral-400 transition-transform duration-200 group-open:rotate-180"
+              aria-hidden="true"
+              set:html={CHEVRON_ICON}
+            />
+          </summary>
+          <div class="px-6 pb-5 text-[15px] leading-[1.7] text-neutral-500">
+            {a}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+
+  <!-- FAQ Schema.org structured data -->
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+</section>

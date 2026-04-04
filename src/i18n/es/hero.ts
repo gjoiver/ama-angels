@@ -5,10 +5,16 @@ export const hero = {
   'hero.description':
     'Enfermería domiciliaria, turismo médico y cirugía estética en Colombia — con una enfermera dedicada a tu lado y atención 24/7 por WhatsApp.',
   'hero.ctaPrimary': 'Habla con nosotros',
-  'hero.ctaSecondary': 'Conocer Servicios',
+  'hero.ctaPrimaryMicro': 'Sin compromiso. Te respondemos por WhatsApp.',
+  'hero.ctaSecondary': 'Ver cómo funciona',
+  'hero.whatsappMessage': 'Hola, quiero información sobre los servicios de AMA ANGELS',
   'hero.visualTitle': 'Nunca estás solo con AMA ANGELS',
   'hero.badge1.line1': 'Atención 24/7',
   'hero.badge1.line2': 'por WhatsApp',
   'hero.badge2.line1': 'Enfermera dedicada',
   'hero.badge2.line2': 'solo para ti',
+  'hero.trust1': 'Atención 24/7',
+  'hero.trust2': 'Enfermera dedicada',
+  'hero.trust3': 'Clínicas certificadas',
+  'hero.trust4': 'Sin intermediarios',
 } as const;

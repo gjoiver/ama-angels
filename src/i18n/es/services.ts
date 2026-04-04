@@ -21,4 +21,6 @@ export const services = {
   'services.item6.title': 'Bienestar emocional — mente y cuerpo',
   'services.item6.description':
     'Atención psicológica a domicilio, manejo del estrés y talleres terapéuticos. Sin filas, sin estigma, en la comodidad de tu espacio.',
+  'services.qualification':
+    'Todas nuestras enfermeras son profesionales tituladas con registro vigente ante el Ministerio de Salud de Colombia.',
 } as const;

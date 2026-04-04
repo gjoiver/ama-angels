@@ -1,7 +1,9 @@
 ---
 import { getLangFromUrl, useTranslations } from '@i18n/utils';
+import { buildWhatsappUrl } from '@core/constants/contact';
 const lang = getLangFromUrl(Astro.url);
 const translation = useTranslations(lang);
+const navWhatsappUrl = buildWhatsappUrl('Hola, quiero agendar una cita con AMA ANGELS');
 
 const navLinks = [
   { label: translation('nav.services'),  href: '#servicios' },
@@ -42,7 +44,9 @@ const navLinks = [
 
     <!-- CTA desktop -->
     <a
-      href="#contacto"
+      href={navWhatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
       class="hidden md:inline-flex items-center bg-curious-blue-600 text-white px-[22px] py-[10px] rounded-[10px] text-[14px] font-semibold hover:bg-curious-blue-700 hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(1,151,227,0.3)] transition-all duration-200"
     >
       {translation('nav.cta')}
@@ -88,7 +92,7 @@ const navLinks = [
         </li>
       ))}
       <li class="pt-3 pb-1 px-0">
-        <a href="#contacto" class="inline-flex bg-curious-blue-600 text-white px-[22px] py-[10px] rounded-[10px] text-[14px] font-semibold">
+        <a href={navWhatsappUrl} target="_blank" rel="noopener noreferrer" class="inline-flex bg-curious-blue-600 text-white px-[22px] py-[10px] rounded-[10px] text-[14px] font-semibold">
           {translation('nav.cta')}
         </a>
       </li>
