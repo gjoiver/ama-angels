@@ -30,7 +30,7 @@ const faqSchema = {
 };
 ---
 
-<section id="faq" class="py-24 bg-white">
+<section id="faq" class="py-24 bg-sand-50">
   <div class="max-w-[720px] mx-auto px-6">
     <SectionHeader
       eyebrow={translation('faq.eyebrow')}
@@ -39,24 +39,26 @@ const faqSchema = {
 
     <div class="flex flex-col gap-3 fade-up">
       {faqs.map(({ q, a }, i) => (
-        <details class="group rounded-2xl border border-neutral-150 bg-neutral-50/50 transition-all hover:border-curious-blue-200">
-          <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-[16px] font-semibold text-neutral-800 leading-snug list-none [&::-webkit-details-marker]:hidden">
+        <details class="group rounded-[20px] bg-white border border-ink-200 shadow-elev-1 transition-all hover:shadow-elev-2 hover:border-curious-blue-200">
+          <summary class="flex items-center justify-between cursor-pointer px-6 py-5 text-[16px] font-bold text-ink-900 leading-snug list-none [&::-webkit-details-marker]:hidden">
             <span class="pr-4">{q}</span>
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              class="shrink-0 text-neutral-400 transition-transform duration-200 group-open:rotate-180"
-              aria-hidden="true"
-              set:html={CHEVRON_ICON}
-            />
+            <span class="shrink-0 w-8 h-8 rounded-full flex items-center justify-center bg-curious-blue-50 text-curious-blue-700 transition-colors duration-200 group-open:bg-curious-blue-500 group-open:text-white">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="transition-transform duration-200 group-open:rotate-180"
+                aria-hidden="true"
+                set:html={CHEVRON_ICON}
+              />
+            </span>
           </summary>
-          <div class="px-6 pb-5 text-[15px] leading-[1.7] text-neutral-500">
+          <div class="px-6 pb-5 text-[15px] leading-[1.7] text-ink-500">
             {a}
           </div>
         </details>

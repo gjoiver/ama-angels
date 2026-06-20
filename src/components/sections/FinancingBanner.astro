@@ -8,20 +8,19 @@ const translation = useTranslations(lang);
 
 <section
   id="financiacion"
-  class="relative overflow-hidden py-16"
-  style="background: linear-gradient(135deg, #0d9488 0%, #0f766e 100%);"
+  class="relative overflow-hidden py-16 bg-sand-100 border-y border-sand-200"
 >
   <div class="max-w-[1200px] mx-auto px-6 relative z-10">
     <div class="flex flex-col md:flex-row items-center justify-between gap-10 fade-up text-center md:text-left">
       <div>
-        <h2 class="font-display text-[clamp(28px,4vw,36px)] font-bold text-white">
+        <h2 class="font-display text-[clamp(28px,4vw,36px)] font-bold text-ink-900">
           {translation('financing.heading')}
         </h2>
-        <p class="text-white/85 text-[17px] mt-2 max-w-[500px]">
+        <p class="text-ink-700 text-[17px] mt-2 max-w-[500px]">
           {translation('financing.description')}
         </p>
       </div>
-      <Button href="#contacto" variant="white-on-dark" class="flex-shrink-0">
+      <Button href="#contacto" variant="primary" class="flex-shrink-0">
         {translation('financing.cta')}
       </Button>
     </div>

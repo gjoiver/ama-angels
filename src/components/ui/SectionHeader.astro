@@ -24,13 +24,13 @@ const {
 } = Astro.props;
 
 const alignClass = align === 'center' ? 'flex flex-col items-center text-center' : 'flex flex-col';
-const headingColorClass = headingColor === 'white' ? 'text-white' : 'text-neutral-900';
-const descColorClass = descriptionColor === 'white' ? 'text-white/60' : 'text-neutral-500';
+const headingColorClass = headingColor === 'white' ? 'text-white' : 'text-ink-900';
+const descColorClass = descriptionColor === 'white' ? 'text-white/60' : 'text-ink-500';
 ---
 
 <div class={`${alignClass} mb-14 fade-up ${className}`}>
   <EyebrowLabel text={eyebrow} color={eyebrowColor} />
-  <h2 class={`font-display text-[clamp(32px,5vw,44px)] font-bold leading-[1.15] mb-4 ${headingColorClass}`}>
+  <h2 class={`font-display text-[clamp(32px,5vw,44px)] font-bold leading-[1.15] mb-4 tracking-[-0.02em] ${headingColorClass}`}>
     {heading}
   </h2>
   {description && (

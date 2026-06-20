@@ -17,7 +17,7 @@ const navLinks = [
 
 <nav
   id="navbar"
-  class="fixed top-0 left-0 right-0 z-[100] bg-white/[0.92] backdrop-blur-[20px] border-b border-neutral-100 transition-shadow duration-300"
+  class="fixed top-0 left-0 right-0 z-[100] bg-white/[0.92] backdrop-blur-[20px] border-b border-ink-200 transition-shadow duration-300"
 >
   <div class="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-[72px]">
     <!-- Logo -->
@@ -35,7 +35,7 @@ const navLinks = [
     <ul class="hidden md:flex items-center gap-8 list-none m-0 p-0">
       {navLinks.map((link) => (
         <li>
-          <a href={link.href} class="nav-link text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors duration-200">
+          <a href={link.href} class="nav-link text-[15px] font-medium text-ink-700 hover:text-curious-blue-600 transition-colors duration-200">
             {link.label}
           </a>
         </li>
@@ -47,7 +47,7 @@ const navLinks = [
       href={navWhatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      class="hidden md:inline-flex items-center bg-curious-blue-600 text-white px-[22px] py-[10px] rounded-[10px] text-[14px] font-semibold hover:bg-curious-blue-700 hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(1,151,227,0.3)] transition-all duration-200"
+      class="hidden md:inline-flex items-center bg-curious-blue-600 text-white px-[22px] py-[10px] rounded-[14px] text-[14px] font-semibold hover:bg-curious-blue-700 hover:-translate-y-px hover:shadow-[0_4px_12px_rgba(1,151,227,0.3)] transition-all duration-200"
     >
       {translation('nav.cta')}
     </a>
@@ -55,7 +55,7 @@ const navLinks = [
     <!-- Hamburger mobile -->
     <button
       id="mobile-toggle"
-      class="md:hidden flex items-center justify-center p-2 rounded-md hover:bg-neutral-100 transition-colors"
+      class="md:hidden flex items-center justify-center p-2 rounded-md hover:bg-sand-100 transition-colors"
       aria-label="Abrir menú"
       aria-expanded="false"
       aria-controls="mobile-menu"
@@ -65,7 +65,7 @@ const navLinks = [
         height="24"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#374151"
+        stroke="#2E4150"
         stroke-width="2"
         stroke-linecap="round"
         aria-hidden="true"
@@ -80,19 +80,19 @@ const navLinks = [
   <!-- Menú mobile -->
   <div
     id="mobile-menu"
-    class="hidden md:hidden border-translation border-neutral-100 bg-white"
+    class="hidden md:hidden border-translation border-ink-200 bg-white"
     aria-hidden="true"
   >
     <ul class="flex flex-col px-6 py-4 gap-1 list-none m-0 p-0">
       {navLinks.map((link) => (
         <li>
-          <a href={link.href} class="block py-2 text-[15px] font-medium text-neutral-600 hover:text-curious-blue-600 transition-colors">
+          <a href={link.href} class="block py-2 text-[15px] font-medium text-ink-700 hover:text-curious-blue-600 transition-colors">
             {link.label}
           </a>
         </li>
       ))}
       <li class="pt-3 pb-1 px-0">
-        <a href={navWhatsappUrl} target="_blank" rel="noopener noreferrer" class="inline-flex bg-curious-blue-600 text-white px-[22px] py-[10px] rounded-[10px] text-[14px] font-semibold">
+        <a href={navWhatsappUrl} target="_blank" rel="noopener noreferrer" class="inline-flex bg-curious-blue-600 text-white px-[22px] py-[10px] rounded-[14px] text-[14px] font-semibold">
           {translation('nav.cta')}
         </a>
       </li>

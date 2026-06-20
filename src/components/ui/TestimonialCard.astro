@@ -10,7 +10,7 @@ const { quote, name, service, origin } = Astro.props;
 const initial = name.charAt(0);
 ---
 
-<blockquote class="flex flex-col gap-4 bg-white rounded-2xl p-6 border border-neutral-100 shadow-sm">
+<blockquote class="flex flex-col gap-4 bg-white rounded-2xl p-6 border border-ink-200 shadow-elev-1">
   <div class="flex gap-1 text-curious-blue-400" aria-hidden="true">
     {Array.from({ length: 5 }).map(() => (
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
@@ -18,8 +18,8 @@ const initial = name.charAt(0);
       </svg>
     ))}
   </div>
-  <p class="text-[15px] text-neutral-600 leading-[1.75] italic">&ldquo;{quote}&rdquo;</p>
-  <footer class="flex items-center gap-3 pt-1 border-t border-neutral-100">
+  <p class="text-[15px] text-ink-700 leading-[1.75] italic">&ldquo;{quote}&rdquo;</p>
+  <footer class="flex items-center gap-3 pt-1 border-t border-ink-200">
     <!-- Avatar placeholder — reemplazar con foto real -->
     <div
       class="w-10 h-10 rounded-full bg-curious-blue-100 flex items-center justify-center flex-shrink-0"
@@ -28,8 +28,8 @@ const initial = name.charAt(0);
       <span class="text-[13px] font-bold text-curious-blue-600">{initial}</span>
     </div>
     <div>
-      <p class="text-[14px] font-semibold text-neutral-800">{name}</p>
-      <p class="text-[12px] text-neutral-400">{service} · {origin}</p>
+      <p class="text-[14px] font-semibold text-ink-900">{name}</p>
+      <p class="text-[12px] text-ink-400">{service} · {origin}</p>
     </div>
   </footer>
 </blockquote>

@@ -14,7 +14,7 @@ const PHONE_ICON = `<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63
 <section
   id="contacto"
   class="py-24"
-  style="background: linear-gradient(135deg, #EFF9FF 0%, #f0fdfa 100%);"
+  style="background: linear-gradient(160deg,#042E4D,#0068AA);"
 >
   <div class="max-w-[1200px] mx-auto px-6">
     <div class="flex flex-col items-center text-center gap-0 fade-up">
@@ -23,6 +23,9 @@ const PHONE_ICON = `<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63
         eyebrow={translation('cta.eyebrow')}
         heading={translation('cta.heading')}
         description={translation('cta.description')}
+        eyebrowColor="blue-light"
+        headingColor="white"
+        descriptionColor="white"
         class="mb-0"
       />
 
@@ -44,7 +47,7 @@ const PHONE_ICON = `<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63
             {translation('cta.ctaPhone')}
           </Button>
         </div>
-        <p class="text-[13px] text-neutral-400 mt-1">
+        <p class="text-[13px] text-white/60 mt-1">
           {translation('cta.micro')}
         </p>
       </div>

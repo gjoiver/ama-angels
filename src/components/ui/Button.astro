@@ -17,17 +17,17 @@ const {
   class: className = '',
 } = Astro.props;
 
-const base = 'inline-flex items-center justify-center gap-2.5 font-semibold rounded-[10px] transition-all duration-200 hover:-translate-y-0.5';
+const base = 'inline-flex items-center justify-center gap-2.5 font-semibold rounded-[14px] transition-all duration-200 hover:-translate-y-0.5';
 
 const variants: Record<string, string> = {
   primary:
-    'bg-curious-blue-600 text-white hover:bg-curious-blue-700 shadow-[0_4px_16px_rgba(1,151,227,0.25)] hover:shadow-[0_8px_24px_rgba(1,151,227,0.35)]',
+    'bg-curious-blue-500 text-white hover:bg-curious-blue-600 shadow-elev-brand',
   secondary:
     'bg-secondary-600 text-white hover:bg-secondary-700 shadow-[0_4px_16px_rgba(13,148,136,0.25)] hover:shadow-[0_8px_24px_rgba(13,148,136,0.35)]',
   whatsapp:
     'bg-whatsapp text-white font-bold hover:opacity-90 shadow-[0_4px_16px_rgba(37,211,102,0.3)] hover:shadow-[0_8px_24px_rgba(37,211,102,0.4)]',
   outline:
-    'bg-white text-curious-blue-600 border-2 border-curious-blue-200 hover:border-curious-blue-400 hover:bg-curious-blue-50',
+    'bg-white text-curious-blue-700 border border-curious-blue-200 hover:border-curious-blue-500 hover:bg-curious-blue-50',
   'outline-white':
     'bg-white/15 text-white border border-white/30 hover:bg-white/20',
   'white-on-dark':

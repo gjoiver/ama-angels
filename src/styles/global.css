@@ -3,7 +3,7 @@
 @import "./components.css";
 
 @theme {
-  /* Curious Blue — Marca primaria */
+  /* Curious Blue — Primary brand color (actions, links, emphasis) */
   --color-curious-blue-50:  #EFF9FF;
   --color-curious-blue-100: #DEF1FF;
   --color-curious-blue-200: #B6E5FF;
@@ -16,19 +16,55 @@
   --color-curious-blue-900: #064974;
   --color-curious-blue-950: #042E4D;
 
-  /* Secondary — Teal */
-  --color-secondary-50:  #f0fdfa;
-  --color-secondary-100: #ccfbf1;
+  /* Teal — Secondary (wellbeing, emotional health, support accents) */
+  --color-secondary-50:  #F0FDFA;
+  --color-secondary-100: #CCFBF1;
+  --color-secondary-200: #99F6E4;
+  --color-secondary-300: #5EEAD4;
+  --color-secondary-400: #2DD4BF;
   --color-secondary-500: #14B8A6;
-  --color-secondary-600: #0d9488;
-  --color-secondary-700: #0f766e;
+  --color-secondary-600: #0D9488;
+  --color-secondary-700: #0F766E;
+  --color-secondary-800: #115E59;
+  --color-secondary-900: #134E4A;
 
-  /* WhatsApp */
+  /* Sand — Warm neutral surfaces (backgrounds, cards, sections) */
+  --color-sand-50:  #FCFBF8;
+  --color-sand-100: #F6F3ED;
+  --color-sand-200: #EDE7DC;
+  --color-sand-300: #E0D7C7;
+  --color-sand-400: #CDBFA8;
+  --color-sand-500: #B0A088;
+
+  /* Ink (Slate) — Type, text and borders (clinical) */
+  --color-ink-900: #15252F;
+  --color-ink-700: #2E4150;
+  --color-ink-500: #52606B;
+  --color-ink-400: #6A7680;
+  --color-ink-300: #9AA3AB;
+  --color-ink-200: #E2E0D8;
+
+  /* Semantic */
+  --color-success:   #25D366; /* confirmations, WhatsApp, availability */
+  --color-info:      #0197E3; /* informational notices and links */
+  --color-attention: #E8A23D; /* financing, soft warnings */
+  --color-error:     #E5484D; /* form validation, errors */
+
+  /* WhatsApp (alias of success) */
   --color-whatsapp: #25D366;
 
-  /* Tipografía */
+  /* Typography */
   --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
   --font-body:    'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+
+  /* Elevation — soft, multi-layer shadows; blue-tinted at higher altitude.
+     Added as custom tokens (shadow-elev-*) so Tailwind's default shadow
+     utilities stay intact. Radii follow 11 / 14 / 20 / 24 / 28 px. */
+  --shadow-elev-1:     0 1px 2px rgba(20, 37, 47, .05);
+  --shadow-elev-2:     0 18px 36px -16px rgba(20, 37, 47, .16);
+  --shadow-elev-3:     0 16px 30px -12px rgba(4, 46, 77, .22);
+  --shadow-elev-brand: 0 12px 24px -8px rgba(1, 151, 227, .55);
 }
 
 /* ==================== BASE ==================== */
